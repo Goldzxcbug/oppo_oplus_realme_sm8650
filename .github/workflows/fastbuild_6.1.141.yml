@@ -478,7 +478,7 @@ jobs:
             echo "CONFIG_DEVTMPFS=y" >> ./arch/arm64/configs/gki_defconfig
             echo "CONFIG_NAMESPACES=y" >> ./arch/arm64/configs/gki_defconfig
             echo "CONFIG_POSIX_MQUEUE=y" >> ./arch/arm64/configs/gki_defconfig
-            ccho "CONFIG_USER_NS=y" >> ./arch/arm64/configs/gki_defconfig
+            echo "CONFIG_USER_NS=y" >> ./arch/arm64/configs/gki_defconfig
 
       - name: 启用三星SSG IO调度器
         if: inputs.ssg_enable
