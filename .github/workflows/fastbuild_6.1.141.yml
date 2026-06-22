@@ -468,7 +468,10 @@ jobs:
             wget "https://github.com/Goldzxcbug/Droidspaces_Kernel_patch/raw/refs/heads/main/OKI/6.1/04.sysvipc_task_struct.patch"
             wget "https://github.com/Goldzxcbug/Droidspaces_Kernel_patch/raw/refs/heads/main/NTsync/ntsync_base.patch"
             wget "https://github.com/Goldzxcbug/Droidspaces_Kernel_patch/raw/refs/heads/main/NTsync/ntsync_compat_android14-6.1.patch"
-            patch -n1 -F 3 < '04.sysvipc_task_struct.patch'
+            patch -p1 -F 3 < '04.sysvipc_task_struct.patch'
+            patch -p1 -F 3 < 'ntsync_base.patch'
+            patch -p1 -F 3 < 'ntsync_compat_android14-6.1.patch'
+            echo "CONFIG_NTSYNC=y" >> ./arch/arm64/configs/gki_defconfig
             # 开启 Droidspaces 容器所需内核支持
             echo "CONFIG_PID_NS=y" >> ./arch/arm64/configs/gki_defconfig
             echo "CONFIG_IPC_NS=y" >> ./arch/arm64/configs/gki_defconfig
